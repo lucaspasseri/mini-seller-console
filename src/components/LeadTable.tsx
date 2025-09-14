@@ -7,8 +7,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "./ui/table";
-import { useEffect, useState } from "react";
-import { getLeads } from "@/services/leads";
+import { useState } from "react";
 import { Input } from "./ui/input";
 
 import {
@@ -24,34 +23,22 @@ import { Button } from "./ui/button";
 
 const tableHeaders = ["Name", "Company", "Email", "Source", "Score", "Status"];
 
-export default function LeadTable() {
-	const [leads, setLeads] = useState<Lead[]>([]);
-	const [error, setError] = useState<string | null>(null);
-	const [loading, setLoading] = useState<boolean>(false);
-
+export default function LeadTable({
+	leads,
+	isLoading,
+	hasError,
+	openDrawer,
+}: {
+	leads: Lead[];
+	isLoading: boolean;
+	hasError: string | null;
+	openDrawer: (leadId: string) => void;
+}) {
 	const [searchInput, setSearchInput] = useState<string>("");
 	const [selectedStatus, setSelectedStatus] = useState<LeadStatus | "all">(
 		"all"
 	);
 	const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
-
-	async function loadLeads() {
-		try {
-			setLoading(true);
-			setError(null);
-			const currLeads = await getLeads();
-			setLeads(currLeads);
-		} catch (err) {
-			setError(`Get leads failed: Refresh to try again.`);
-			console.error(`Get leads failed: ${err}`);
-		} finally {
-			setLoading(false);
-		}
-	}
-
-	useEffect(() => {
-		loadLeads();
-	}, []);
 
 	function filterBySearchInput(leads: Lead[]) {
 		const filtered = leads.filter(lead => {
@@ -139,27 +126,27 @@ export default function LeadTable() {
 					</TableRow>
 				</TableHeader>
 				<TableBody>
-					{loading ? (
+					{isLoading ? (
 						<TableRow>
 							<TableCell colSpan={tableHeaders.length} className='text-center'>
 								Loading...
 							</TableCell>
 						</TableRow>
-					) : leads.length === 0 ? (
+					) : filteredLeads.length === 0 ? (
 						<TableRow>
 							<TableCell colSpan={tableHeaders.length} className='text-center'>
 								No leads found
 							</TableCell>
 						</TableRow>
-					) : error ? (
+					) : hasError ? (
 						<TableRow>
 							<TableCell colSpan={tableHeaders.length} className='text-center'>
-								{error}
+								{hasError}
 							</TableCell>
 						</TableRow>
 					) : (
 						filteredLeads.map(lead => (
-							<TableRow key={lead.id}>
+							<TableRow key={lead.id} onClick={() => openDrawer(`${lead.id}`)}>
 								<TableCell>{lead.name}</TableCell>
 								<TableCell>{lead.company}</TableCell>
 								<TableCell>{lead.email}</TableCell>
