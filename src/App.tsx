@@ -1,3 +1,10 @@
+import LeadTable from "./components/LeadTable";
+
 export default function App() {
-	return <h1 className='border border-black'>Mini Seller Console</h1>;
+	return (
+		<>
+			<h1>Mini Seller Console</h1>
+			<LeadTable />
+		</>
+	);
 }
