@@ -4,6 +4,7 @@ import LeadTable from "./components/LeadTable";
 import { getLeads } from "./services/leads";
 import type { Lead } from "./types/lead";
 import LeadDetailsDrawer from "./components/LeadDetailsDrawer";
+import Header from "./components/Header";
 
 export default function App() {
 	const [leads, setLeads] = useState<Lead[]>([]);
@@ -39,19 +40,19 @@ export default function App() {
 	);
 
 	return (
-		<>
-			<h1>Mini Seller Console</h1>
-			<LeadDetailsDrawer
-				lead={selectedLead}
-				isOpen={isOpen}
-				setIsOpen={setIsOpen}
-			/>
+		<div className='px-2 md:px-8'>
+			<Header />
 			<LeadTable
 				leads={leads}
 				isLoading={loading}
 				hasError={error}
 				openDrawer={openDrawer}
 			/>
-		</>
+			<LeadDetailsDrawer
+				lead={selectedLead}
+				isOpen={isOpen}
+				setIsOpen={setIsOpen}
+			/>
+		</div>
 	);
 }

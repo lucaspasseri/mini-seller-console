@@ -8,18 +8,7 @@ import {
 	TableRow,
 } from "./ui/table";
 import { useState } from "react";
-import { Input } from "./ui/input";
-
-import {
-	Select,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-	SelectLabel,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
-import { Button } from "./ui/button";
+import TableActions from "./TableActions";
 
 const tableHeaders = ["Name", "Company", "Email", "Source", "Score", "Status"];
 
@@ -80,43 +69,28 @@ export default function LeadTable({
 
 	filteredLeads = sortLeads(filteredLeads);
 
+	function handleSearchInput(e: React.ChangeEvent<HTMLInputElement>) {
+		setSearchInput(e.target.value);
+	}
+
+	function handleSelectedStatus(value: string) {
+		setSelectedStatus(value as LeadStatus | "all");
+	}
+
+	function handleSortOrder() {
+		setSortOrder(prevState => (prevState === "desc" ? "asc" : "desc"));
+	}
+
 	return (
-		<div className='border border-black rounded p-2'>
-			<div className='flex'>
-				<Input
-					placeholder='Search...'
-					value={searchInput}
-					onChange={e => setSearchInput(e.target.value)}
-				/>
-				<Select
-					value={selectedStatus}
-					onValueChange={value =>
-						setSelectedStatus(value as LeadStatus | "all")
-					}
-				>
-					<SelectTrigger className='w-[200px]'>
-						<SelectValue placeholder='Select a Status' />
-					</SelectTrigger>
-					<SelectContent>
-						<SelectGroup>
-							<SelectLabel>Status</SelectLabel>
-							<SelectItem value='all'>All</SelectItem>
-							<SelectItem value='new'>New</SelectItem>
-							<SelectItem value='contacted'>Contacted</SelectItem>
-							<SelectItem value='qualified'>Qualified</SelectItem>
-							<SelectItem value='unqualified'>Unqualified</SelectItem>
-						</SelectGroup>
-					</SelectContent>
-				</Select>
-				<Button
-					variant='outline'
-					onClick={() => {
-						setSortOrder(prevState => (prevState === "desc" ? "asc" : "desc"));
-					}}
-				>
-					Sort Leads
-				</Button>
-			</div>
+		<div className='border border-[#fdfdfd]rounded p-2'>
+			<TableActions
+				searchInput={searchInput}
+				handleSearchInput={handleSearchInput}
+				selectedStatus={selectedStatus}
+				handleSelectedStatus={handleSelectedStatus}
+				handleSortOrder={handleSortOrder}
+			/>
+			<h4 className='mx-2 mb-2'>Leads: {`${filteredLeads.length}`}</h4>
 			<Table>
 				<TableHeader>
 					<TableRow>
