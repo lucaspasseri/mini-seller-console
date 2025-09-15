@@ -1,57 +1,68 @@
 # Mini Seller Console - Challenge for a Frontend Developer position at CoverPin
 
-## Challenge
+## Deploy
 
-### Mini Seller Console (React + Tailwind)
+You can see the [Mini Seller Console](https://lucaspasseri.github.io/mini-seller-console/) on Github pages.
 
-#### Goal: Build a lightweight console to triage Leads and convert them into Opportunities. You can use an AI co-pilot, we encourage dev’s to do so, but what we are assessing on is the structure and quality.
+## Mini Seller Console (React + Tailwind)
 
-### Requirements (MVP)
+### Goal
 
-#### Leads List
+Build a lightweight console to triage **Leads** and convert them into **Opportunities**.  
+You can use an AI co-pilot—we encourage devs to do so—but what we are assessing is the **structure and quality**.
 
-Load from a local JSON file.
+---
 
-Fields: id, name, company, email, source, score, status.
+## Requirements (MVP)
 
-Features: search (name/company), filter (status), sort (score desc).
+### 1. Leads List
 
-#### Lead Detail Panel
+- Load from a local JSON file.
+- Fields: `id`, `name`, `company`, `email`, `source`, `score`, `status`.
+- Features:
+  - Search by name/company
+  - Filter by status
+  - Sort by score (descending)
 
-Click a row to open a slide-over panel.
+### 2. Lead Detail Panel
 
-Inline edit status and email (validate email format).
+- Click a row to open a slide-over panel.
+- Inline edit `status` and `email` (validate email format).
+- Save/cancel actions with basic error handling.
 
-Save/cancel actions with basic error handling.
+### 3. Convert to Opportunity
 
-#### Convert to Opportunity
+- Button: **Convert Lead**.
+- Create an Opportunity with:
+  - `id`
+  - `name`
+  - `stage`
+  - `amount` (optional)
+  - `accountName`
+- Show Opportunities in a simple table.
 
-Button: Convert Lead.
+### 4. UX / States
 
-Create an Opportunity with: id, name, stage, amount (optional), accountName.
+- Loading, empty, and simple error states.
+- Handle ~100 leads smoothly.
 
-Show Opportunities in a simple table.
+---
 
-#### UX/States
+## Nice-to-Haves (pick 1–2)
 
-Loading, empty, and simple error states.
+- Persist filter/sort in `localStorage`.
+- Optimistic updates with rollback on simulated failure.
+- Responsive layout (desktop → mobile).
 
-Handle ~100 leads smoothly.
+---
 
-#### Nice-to-Haves (pick 1–2)
+## Tech Constraints
 
-Persist filter/sort in localStorage.
+- React (**Vite** or **CRA**) + **Tailwind CSS**.
+- No backend required:
+  - Use local JSON
+  - Use `setTimeout` to simulate latency.o simulate latency.
 
-Optimistic updates with a rollback on simulated failure.
-
-Responsive layout (desktop → mobile).
-
-#### Tech Constraints
-
-React (Vite or CRA) + Tailwind CSS.
-
-No backend required; use local JSON and setTimeout to simulate latency.
-
-##### duration
+##### Duration
 
 72h
