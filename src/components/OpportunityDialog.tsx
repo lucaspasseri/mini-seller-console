@@ -21,19 +21,23 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "./ui/select";
-import type { OpportunityStage } from "@/types/opportunity";
+import type { Opportunity, OpportunityStage } from "@/types/opportunity";
 export function OpportunityDialog({
 	isOpen,
 	setIsOpen,
+	setIsOpenDrawer,
 	lead,
+	setOpportunities,
 }: {
 	isOpen: boolean;
 	setIsOpen: Dispatch<SetStateAction<boolean>>;
+	setIsOpenDrawer: Dispatch<SetStateAction<boolean>>;
 	lead: Lead | undefined;
+	setOpportunities: Dispatch<SetStateAction<Opportunity[]>>;
 }) {
 	const [name, setName] = useState<string | undefined>("");
 	const [account, setAccount] = useState<string | undefined>("");
-	const [stage, setStage] = useState<string | undefined>("prospecting");
+	const [stage, setStage] = useState<OpportunityStage>("prospecting");
 	const [amount, setAmount] = useState<string>("");
 
 	useEffect(() => {
@@ -45,9 +49,29 @@ export function OpportunityDialog({
 		setStage(value as OpportunityStage);
 	}
 
-	function handleSubmit(e: any) {
+	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
-		console.log(1);
+
+		console.log(amount);
+
+		const newOpportunity: Opportunity = {
+			id: Date.now(),
+			name: name || "",
+			accountName: account || "",
+			stage,
+			amount: amount ? Number(amount) : undefined,
+			createdAt: new Date(),
+		};
+
+		setOpportunities(prev => [...prev, newOpportunity]);
+
+		setIsOpen(false);
+
+		setName("");
+		setAccount("");
+		setStage("prospecting");
+		setAmount("");
+		setIsOpenDrawer(false);
 	}
 
 	return (

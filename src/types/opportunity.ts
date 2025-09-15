@@ -12,4 +12,5 @@ export interface Opportunity {
 	accountName: string;
 	stage: OpportunityStage;
 	amount?: number;
+	createdAt?: Date;
 }

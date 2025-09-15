@@ -8,7 +8,7 @@ import {
 	TableRow,
 } from "./ui/table";
 
-const tableHeaders = ["Name", "Account", "Stage", "Amount"];
+const tableHeaders = ["Name", "Account", "Stage", "Amount", "Created at"];
 
 export default function OpportunityTable({
 	opportunities,
@@ -33,13 +33,22 @@ export default function OpportunityTable({
 								<TableCell>{opportunity.name}</TableCell>
 								<TableCell>{opportunity.accountName}</TableCell>
 								<TableCell>{opportunity.stage}</TableCell>
-								<TableCell>{opportunity.amount}</TableCell>
+								<TableCell>{opportunity.amount || "-"}</TableCell>
+								<TableCell>
+									{opportunity.createdAt
+										? opportunity.createdAt.toLocaleDateString("en-US", {
+												month: "short",
+												day: "numeric",
+												year: "numeric",
+										  })
+										: ""}
+								</TableCell>
 							</TableRow>
 						))
 					) : (
 						<TableRow>
 							<TableCell colSpan={tableHeaders.length} className='text-center'>
-								No opportunities found
+								(No opportunities found)
 							</TableCell>
 						</TableRow>
 					)}

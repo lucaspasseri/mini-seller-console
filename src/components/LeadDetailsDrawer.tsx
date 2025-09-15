@@ -173,9 +173,9 @@ export default function LeadDetailsDrawer({
 					</div>
 				</form>
 				<DrawerFooter>
-					<DrawerDescription>Opportunity</DrawerDescription>
+					<DrawerDescription>Convert to Opportunity</DrawerDescription>
 					<Button type='button' onClick={() => openDialog(true)}>
-						Convert to Opportunity
+						Convert Lead
 					</Button>
 				</DrawerFooter>
 			</DrawerContent>
