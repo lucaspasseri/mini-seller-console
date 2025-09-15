@@ -47,7 +47,7 @@ export default function App() {
 	return (
 		<div className='px-2 md:px-8 py-4'>
 			<Header />
-			<div className='grid gap-8'>
+			<div className='flex flex-col gap-4'>
 				<LeadTable
 					leads={leads}
 					isLoading={loading}
