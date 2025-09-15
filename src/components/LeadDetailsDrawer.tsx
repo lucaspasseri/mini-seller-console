@@ -107,7 +107,9 @@ export default function LeadDetailsDrawer({
 			<DrawerContent className='right-0 top-0 h-full w-[400px] max-w-full border-l'>
 				<DrawerHeader className='relative'>
 					<DrawerTitle>Lead Details</DrawerTitle>
-					<DrawerClose className='absolute top-4 right-4'>Close</DrawerClose>
+					<DrawerClose className='absolute top-4 right-4' asChild>
+						<Button variant='outline'>Close</Button>
+					</DrawerClose>
 				</DrawerHeader>
 
 				<form className='mt-4 px-4 flex flex-col gap-6' onSubmit={handleSave}>

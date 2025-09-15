@@ -1,16 +1,4 @@
-export type OpportunityStage =
-	| "prospecting"
-	| "qualification"
-	| "proposal"
-	| "negotiation"
-	| "closedWon"
-	| "closedLost";
-
-export interface Opportunity {
-	id: number;
-	name: string;
-	accountName: string;
-	stage: OpportunityStage;
-	amount?: number;
-	createdAt?: Date;
-}
+export type {
+	Opportunity,
+	OpportunityStage,
+} from "@/schemas/opportunity.schema";

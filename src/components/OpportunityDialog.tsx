@@ -22,6 +22,7 @@ import {
 	SelectValue,
 } from "./ui/select";
 import type { Opportunity, OpportunityStage } from "@/types/opportunity";
+import { opportunityFormSchema } from "@/schemas/opportunity.schema";
 export function OpportunityDialog({
 	isOpen,
 	setIsOpen,
@@ -39,6 +40,9 @@ export function OpportunityDialog({
 	const [account, setAccount] = useState<string | undefined>("");
 	const [stage, setStage] = useState<OpportunityStage>("prospecting");
 	const [amount, setAmount] = useState<string>("");
+	const [formError, setFormError] = useState<Record<string, string> | null>(
+		null
+	);
 
 	useEffect(() => {
 		setName(`${lead?.company} - ${lead?.name}`);
@@ -52,21 +56,39 @@ export function OpportunityDialog({
 	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
 
-		console.log(amount);
+		const entry = {
+			name,
+			accountName: account,
+			stage,
+			amount,
+		};
+
+		const result = opportunityFormSchema.safeParse(entry);
+
+		const errorObj: Record<string, string> = {};
+		if (!result.success) {
+			result.error.issues.forEach(issue => {
+				const key = issue.path[0] as string;
+				const message = issue.message;
+				errorObj[key] = message;
+			});
+
+			setFormError(errorObj);
+			return;
+		}
+		setFormError(null);
 
 		const newOpportunity: Opportunity = {
 			id: Date.now(),
-			name: name || "",
-			accountName: account || "",
-			stage,
-			amount: amount ? Number(amount) : undefined,
+			name: result.data.name,
+			accountName: result.data.accountName,
+			stage: result.data.stage,
+			amount: result.data.amount,
 			createdAt: new Date(),
 		};
 
 		setOpportunities(prev => [...prev, newOpportunity]);
-
 		setIsOpen(false);
-
 		setName("");
 		setAccount("");
 		setStage("prospecting");
@@ -87,44 +109,62 @@ export function OpportunityDialog({
 					<div className='grid gap-4'>
 						<div className='grid gap-3'>
 							<Label htmlFor='name'>Opportunity Name</Label>
-							<Input
-								id='name'
-								name='name'
-								value={name}
-								onChange={e => setName(e.target.value)}
-							/>
+							<div>
+								<Input
+									id='name'
+									name='name'
+									value={name}
+									onChange={e => setName(e.target.value)}
+								/>
+								{formError?.name ? (
+									<p className='text-red-400'>{formError.name}</p>
+								) : null}
+							</div>
 						</div>
 						<div className='grid gap-3'>
 							<Label htmlFor='account'>Account Name</Label>
-							<Input
-								id='account'
-								name='account'
-								value={account}
-								onChange={e => setAccount(e.target.value)}
-							/>
+							<div>
+								<Input
+									id='account'
+									name='account'
+									value={account}
+									onChange={e => setAccount(e.target.value)}
+								/>
+								{formError?.accountName ? (
+									<p className='text-red-400'>{formError.accountName}</p>
+								) : null}
+							</div>
 						</div>
 						<div className='grid gap-3'>
 							<Label htmlFor='stage'>Stage</Label>
-							<Select
-								name='stageSelect'
-								value={stage}
-								onValueChange={handleStage}
-							>
-								<SelectTrigger className='w-[200px]' aria-labelledby='stage'>
-									<SelectValue placeholder='Select a Status' />
-								</SelectTrigger>
-								<SelectContent>
-									<SelectGroup>
-										<SelectLabel>Stage</SelectLabel>
-										<SelectItem value='prospecting'>Prospecting</SelectItem>
-										<SelectItem value='qualification'>Qualification</SelectItem>
-										<SelectItem value='proposal'>Proposal</SelectItem>
-										<SelectItem value='negotiation'>Negotiation</SelectItem>
-										<SelectItem value='closedWon'>Closed Won</SelectItem>
-										<SelectItem value='closeLost'>Close Lost</SelectItem>
-									</SelectGroup>
-								</SelectContent>
-							</Select>
+							<div>
+								<Select
+									name='stageSelect'
+									value={stage}
+									onValueChange={handleStage}
+								>
+									<SelectTrigger className='w-[200px]' aria-labelledby='stage'>
+										<SelectValue placeholder='Select a Status' />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectGroup>
+											<SelectLabel>Stage</SelectLabel>
+											<SelectItem value='Broke'>Broke</SelectItem>
+											<SelectItem value='prospecting'>Prospecting</SelectItem>
+											<SelectItem value='qualification'>
+												Qualification
+											</SelectItem>
+											<SelectItem value='proposal'>Proposal</SelectItem>
+											<SelectItem value='negotiation'>Negotiation</SelectItem>
+											<SelectItem value='closedWon'>Closed Won</SelectItem>
+											<SelectItem value='closeLost'>Close Lost</SelectItem>
+										</SelectGroup>
+									</SelectContent>
+								</Select>
+								{formError?.stage ? (
+									<p className='text-red-400'>{formError.stage}</p>
+								) : null}
+							</div>
 						</div>
 						<div className='grid gap-3'>
 							<Label htmlFor='amount'>Amount (Optional)</Label>
