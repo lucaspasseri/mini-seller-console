@@ -96,6 +96,7 @@ export default function LeadTable({
 				selectedStatus={selectedStatus}
 				handleSelectedStatus={handleSelectedStatus}
 				handleSortOrder={handleSortOrder}
+				sortOrder={sortOrder}
 			/>
 			<Table>
 				<TableHeader>
@@ -117,7 +118,12 @@ export default function LeadTable({
 							<TableCell colSpan={tableHeaders.length} className='text-center'>
 								<div>
 									<p className='mb-2'>(No leads found)</p>
-									<Button type='button' onClick={handleClear}>
+									<Button
+										variant='secondary'
+										type='button'
+										onClick={handleClear}
+										className='border border-gray'
+									>
 										Clear filters
 									</Button>
 								</div>

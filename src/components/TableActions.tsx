@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/select";
 import { Button } from "./ui/button";
 import type { LeadStatus } from "@/types/lead";
+import { Search, Filter, ArrowUpDown } from "lucide-react";
+import { Label } from "./ui/label";
 
 export default function TableActions({
 	searchInput,
@@ -18,27 +20,40 @@ export default function TableActions({
 	selectedStatus,
 	handleSelectedStatus,
 	handleSortOrder,
+	sortOrder,
 }: {
 	searchInput: string;
 	handleSearchInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	selectedStatus: LeadStatus | "all";
 	handleSelectedStatus: (value: string) => void;
 	handleSortOrder: () => void;
+	sortOrder: "desc" | "asc";
 }) {
 	return (
 		<form className='flex pb-4 gap-4'>
-			<Input
-				name='searchInput'
-				placeholder='Search by name or company...'
-				value={searchInput}
-				onChange={handleSearchInput}
-			/>
+			<div className='relative w-full max-w-sm'>
+				<Input
+					id='searchInput'
+					name='searchInput'
+					placeholder='Search by name or company...'
+					value={searchInput}
+					onChange={handleSearchInput}
+					className='pl-8'
+				/>
+				<Label htmlFor='searchInput' className='hover:cursor-pointer'>
+					<Search
+						className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400'
+						size={16}
+					/>
+				</Label>
+			</div>
 			<Select
 				name='statusSelect'
 				value={selectedStatus}
 				onValueChange={handleSelectedStatus}
 			>
-				<SelectTrigger className='w-[200px]'>
+				<SelectTrigger className='w-40'>
+					<Filter className='h-4 w-4 mr-2' />
 					<SelectValue placeholder='Select a Status' />
 				</SelectTrigger>
 				<SelectContent>
@@ -53,7 +68,8 @@ export default function TableActions({
 				</SelectContent>
 			</Select>
 			<Button type='button' variant='outline' onClick={handleSortOrder}>
-				Sort Leads
+				<ArrowUpDown className='h-4 w-4' />
+				Score {sortOrder === "desc" ? "↓" : "↑"}
 			</Button>
 		</form>
 	);
