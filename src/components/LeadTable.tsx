@@ -9,6 +9,7 @@ import {
 } from "./ui/table";
 import { useState } from "react";
 import TableActions from "./TableActions";
+import { Button } from "./ui/button";
 
 const tableHeaders = ["Name", "Company", "Email", "Source", "Score", "Status"];
 
@@ -81,6 +82,11 @@ export default function LeadTable({
 		setSortOrder(prevState => (prevState === "desc" ? "asc" : "desc"));
 	}
 
+	function handleClear() {
+		setSearchInput("");
+		setSelectedStatus("all");
+	}
+
 	return (
 		<div className='border border-[#fdfdfd]rounded p-2'>
 			<h3 className='mx-2 mb-4'>Leads({`${filteredLeads.length})`}</h3>
@@ -109,7 +115,12 @@ export default function LeadTable({
 					) : filteredLeads.length === 0 ? (
 						<TableRow>
 							<TableCell colSpan={tableHeaders.length} className='text-center'>
-								No leads found
+								<div>
+									<p className='mb-2'>(No leads found)</p>
+									<Button type='button' onClick={handleClear}>
+										Clear filters
+									</Button>
+								</div>
 							</TableCell>
 						</TableRow>
 					) : hasError ? (
