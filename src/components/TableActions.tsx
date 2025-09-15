@@ -26,13 +26,18 @@ export default function TableActions({
 	handleSortOrder: () => void;
 }) {
 	return (
-		<div className='flex pb-4 gap-4'>
+		<form className='flex pb-4 gap-4'>
 			<Input
+				name='searchInput'
 				placeholder='Search by name or company...'
 				value={searchInput}
 				onChange={handleSearchInput}
 			/>
-			<Select value={selectedStatus} onValueChange={handleSelectedStatus}>
+			<Select
+				name='statusSelect'
+				value={selectedStatus}
+				onValueChange={handleSelectedStatus}
+			>
 				<SelectTrigger className='w-[200px]'>
 					<SelectValue placeholder='Select a Status' />
 				</SelectTrigger>
@@ -50,6 +55,6 @@ export default function TableActions({
 			<Button variant='outline' onClick={handleSortOrder}>
 				Sort Leads
 			</Button>
-		</div>
+		</form>
 	);
 }
