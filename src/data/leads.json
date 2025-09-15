@@ -1,92 +1,902 @@
 [
-	{
-		"id": 1,
-		"name": "Sarah Johnson",
-		"company": "TechCorp Solutions",
-		"email": "sarah.johnson@techcorp.com",
-		"source": "Website",
-		"score": 85,
-		"status": "new"
-	},
-	{
-		"id": 2,
-		"name": "Michael Chen",
-		"company": "DataFlow Inc",
-		"email": "m.chen@dataflow.com",
-		"source": "LinkedIn",
-		"score": 92,
-		"status": "contacted"
-	},
-	{
-		"id": 3,
-		"name": "Emily Rodriguez",
-		"company": "CloudVision",
-		"email": "emily.r@cloudvision.io",
-		"source": "Referral",
-		"score": 78,
-		"status": "qualified"
-	},
-	{
-		"id": 4,
-		"name": "David Kim",
-		"company": "StartupX",
-		"email": "david@startupx.com",
-		"source": "Cold Email",
-		"score": 65,
-		"status": "new"
-	},
-	{
-		"id": 5,
-		"name": "Lisa Thompson",
-		"company": "Enterprise Systems",
-		"email": "lisa.thompson@enterprise.com",
-		"source": "Trade Show",
-		"score": 88,
-		"status": "contacted"
-	},
-	{
-		"id": 6,
-		"name": "James Wilson",
-		"company": "InnovateLab",
-		"email": "j.wilson@innovatelab.com",
-		"source": "Website",
-		"score": 73,
-		"status": "new"
-	},
-	{
-		"id": 7,
-		"name": "Maria Garcia",
-		"company": "FutureTech",
-		"email": "maria.garcia@futuretech.com",
-		"source": "LinkedIn",
-		"score": 95,
-		"status": "qualified"
-	},
-	{
-		"id": 8,
-		"name": "Robert Brown",
-		"company": "ScaleUp Ventures",
-		"email": "robert.brown@scaleup.com",
-		"source": "Referral",
-		"score": 82,
-		"status": "contacted"
-	},
-	{
-		"id": 9,
-		"name": "Jennifer Lee",
-		"company": "NextGen Solutions",
-		"email": "jennifer.lee@nextgen.com",
-		"source": "Cold Email",
-		"score": 70,
-		"status": "unqualified"
-	},
-	{
-		"id": 10,
-		"name": "Thomas Anderson",
-		"company": "Matrix Corp",
-		"email": "t.anderson@matrix.com",
-		"source": "Website",
-		"score": 90,
-		"status": "new"
-	}
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "company": "AlphaSolutions",
+    "email": "sarah.johnson@alphasolutions.com",
+    "source": "Cold Email",
+    "score": 61,
+    "status": "qualified"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "company": "SecureIT",
+    "email": "michael.chen@secureit.com",
+    "source": "Referral",
+    "score": 65,
+    "status": "qualified"
+  },
+  {
+    "id": 3,
+    "name": "Emily Rodriguez",
+    "company": "FutureEnergy",
+    "email": "emily.rodriguez@futureenergy.com",
+    "source": "Cold Email",
+    "score": 97,
+    "status": "unqualified"
+  },
+  {
+    "id": 4,
+    "name": "David Kim",
+    "company": "Foodies United",
+    "email": "david.kim@foodies.com",
+    "source": "Website",
+    "score": 86,
+    "status": "contacted"
+  },
+  {
+    "id": 5,
+    "name": "Lisa Thompson",
+    "company": "NextGen Solutions",
+    "email": "lisa.thompson@nextgen.com",
+    "source": "Cold Email",
+    "score": 68,
+    "status": "qualified"
+  },
+  {
+    "id": 6,
+    "name": "James Wilson",
+    "company": "AlphaSolutions",
+    "email": "james.wilson@alphasolutions.com",
+    "source": "LinkedIn",
+    "score": 61,
+    "status": "qualified"
+  },
+  {
+    "id": 7,
+    "name": "Maria Garcia",
+    "company": "VisionCare",
+    "email": "maria.garcia@visioncare.com",
+    "source": "Website",
+    "score": 76,
+    "status": "unqualified"
+  },
+  {
+    "id": 8,
+    "name": "Robert Brown",
+    "company": "DataFlow Inc",
+    "email": "robert.brown@dataflow.com",
+    "source": "Cold Email",
+    "score": 83,
+    "status": "contacted"
+  },
+  {
+    "id": 9,
+    "name": "Jennifer Lee",
+    "company": "AeroSpace Global",
+    "email": "jennifer.lee@aerospace.com",
+    "source": "Cold Email",
+    "score": 91,
+    "status": "unqualified"
+  },
+  {
+    "id": 10,
+    "name": "Thomas Anderson",
+    "company": "RetailHub",
+    "email": "thomas.anderson@retailhub.com",
+    "source": "Cold Email",
+    "score": 85,
+    "status": "unqualified"
+  },
+  {
+    "id": 11,
+    "name": "Olivia Martinez",
+    "company": "BioGenix",
+    "email": "olivia.martinez@biogenix.com",
+    "source": "Referral",
+    "score": 65,
+    "status": "contacted"
+  },
+  {
+    "id": 12,
+    "name": "Daniel Smith",
+    "company": "AutoDrive",
+    "email": "daniel.smith@autodrive.com",
+    "source": "Referral",
+    "score": 97,
+    "status": "unqualified"
+  },
+  {
+    "id": 13,
+    "name": "Sophia Lopez",
+    "company": "SocialBuzz",
+    "email": "sophia.lopez@socialbuzz.com",
+    "source": "Referral",
+    "score": 75,
+    "status": "qualified"
+  },
+  {
+    "id": 14,
+    "name": "Matthew Clark",
+    "company": "NextWave",
+    "email": "matthew.clark@nextwave.com",
+    "source": "Referral",
+    "score": 92,
+    "status": "contacted"
+  },
+  {
+    "id": 15,
+    "name": "Emma Davis",
+    "company": "FinServe Group",
+    "email": "emma.davis@finserve.com",
+    "source": "Trade Show",
+    "score": 78,
+    "status": "unqualified"
+  },
+  {
+    "id": 16,
+    "name": "William Hernandez",
+    "company": "DataFlow Inc",
+    "email": "william.hernandez@dataflow.com",
+    "source": "Referral",
+    "score": 99,
+    "status": "qualified"
+  },
+  {
+    "id": 17,
+    "name": "Ava Moore",
+    "company": "OptimaHealth",
+    "email": "ava.moore@optimahealth.com",
+    "source": "Website",
+    "score": 98,
+    "status": "unqualified"
+  },
+  {
+    "id": 18,
+    "name": "Ethan Taylor",
+    "company": "ScaleUp Ventures",
+    "email": "ethan.taylor@scaleup.com",
+    "source": "Referral",
+    "score": 73,
+    "status": "contacted"
+  },
+  {
+    "id": 19,
+    "name": "Isabella White",
+    "company": "VisionCare",
+    "email": "isabella.white@visioncare.com",
+    "source": "Website",
+    "score": 99,
+    "status": "unqualified"
+  },
+  {
+    "id": 20,
+    "name": "Alexander Scott",
+    "company": "SecureIT",
+    "email": "alexander.scott@secureit.com",
+    "source": "Referral",
+    "score": 71,
+    "status": "unqualified"
+  },
+  {
+    "id": 21,
+    "name": "Mia Young",
+    "company": "SocialBuzz",
+    "email": "mia.young@socialbuzz.com",
+    "source": "Trade Show",
+    "score": 73,
+    "status": "qualified"
+  },
+  {
+    "id": 22,
+    "name": "Benjamin Hall",
+    "company": "SmartHome Systems",
+    "email": "benjamin.hall@smarthome.com",
+    "source": "Trade Show",
+    "score": 74,
+    "status": "contacted"
+  },
+  {
+    "id": 23,
+    "name": "Charlotte King",
+    "company": "Foodies United",
+    "email": "charlotte.king@foodies.com",
+    "source": "LinkedIn",
+    "score": 72,
+    "status": "unqualified"
+  },
+  {
+    "id": 24,
+    "name": "Jacob Allen",
+    "company": "AeroSpace Global",
+    "email": "jacob.allen@aerospace.com",
+    "source": "Website",
+    "score": 68,
+    "status": "contacted"
+  },
+  {
+    "id": 25,
+    "name": "Amelia Wright",
+    "company": "BrightPath",
+    "email": "amelia.wright@brightpath.com",
+    "source": "Cold Email",
+    "score": 94,
+    "status": "unqualified"
+  },
+  {
+    "id": 26,
+    "name": "Logan Hill",
+    "company": "AlphaSolutions",
+    "email": "logan.hill@alphasolutions.com",
+    "source": "LinkedIn",
+    "score": 65,
+    "status": "qualified"
+  },
+  {
+    "id": 27,
+    "name": "Harper Green",
+    "company": "TechCorp Solutions",
+    "email": "harper.green@techcorp.com",
+    "source": "LinkedIn",
+    "score": 71,
+    "status": "qualified"
+  },
+  {
+    "id": 28,
+    "name": "Elijah Adams",
+    "company": "Oceanic Logistics",
+    "email": "elijah.adams@oceanic.com",
+    "source": "LinkedIn",
+    "score": 87,
+    "status": "qualified"
+  },
+  {
+    "id": 29,
+    "name": "Abigail Baker",
+    "company": "HealthPlus",
+    "email": "abigail.baker@healthplus.com",
+    "source": "Trade Show",
+    "score": 75,
+    "status": "contacted"
+  },
+  {
+    "id": 30,
+    "name": "Lucas Nelson",
+    "company": "SmartHome Systems",
+    "email": "lucas.nelson@smarthome.com",
+    "source": "Referral",
+    "score": 94,
+    "status": "unqualified"
+  },
+  {
+    "id": 31,
+    "name": "Chloe Carter",
+    "company": "AgroGrow",
+    "email": "chloe.carter@agrogrow.com",
+    "source": "Cold Email",
+    "score": 72,
+    "status": "unqualified"
+  },
+  {
+    "id": 32,
+    "name": "Mason Mitchell",
+    "company": "FutureTech",
+    "email": "mason.mitchell@futuretech.com",
+    "source": "Referral",
+    "score": 78,
+    "status": "unqualified"
+  },
+  {
+    "id": 33,
+    "name": "Ella Perez",
+    "company": "CityNet",
+    "email": "ella.perez@citynet.com",
+    "source": "Trade Show",
+    "score": 88,
+    "status": "qualified"
+  },
+  {
+    "id": 34,
+    "name": "Jameson Roberts",
+    "company": "CloudHub",
+    "email": "jameson.roberts@cloudhub.com",
+    "source": "Cold Email",
+    "score": 71,
+    "status": "new"
+  },
+  {
+    "id": 35,
+    "name": "Lily Turner",
+    "company": "BrightPath",
+    "email": "lily.turner@brightpath.com",
+    "source": "Trade Show",
+    "score": 87,
+    "status": "unqualified"
+  },
+  {
+    "id": 36,
+    "name": "Henry Phillips",
+    "company": "SynergySoft",
+    "email": "henry.phillips@synergysoft.com",
+    "source": "Website",
+    "score": 64,
+    "status": "unqualified"
+  },
+  {
+    "id": 37,
+    "name": "Grace Campbell",
+    "company": "RoboTech",
+    "email": "grace.campbell@robotech.com",
+    "source": "Trade Show",
+    "score": 62,
+    "status": "new"
+  },
+  {
+    "id": 38,
+    "name": "Sebastian Parker",
+    "company": "GameSphere",
+    "email": "sebastian.parker@gamesphere.com",
+    "source": "Cold Email",
+    "score": 74,
+    "status": "unqualified"
+  },
+  {
+    "id": 39,
+    "name": "Victoria Evans",
+    "company": "Visionary AI",
+    "email": "victoria.evans@visionary.com",
+    "source": "Cold Email",
+    "score": 62,
+    "status": "contacted"
+  },
+  {
+    "id": 40,
+    "name": "Jack Edwards",
+    "company": "RoboTech",
+    "email": "jack.edwards@robotech.com",
+    "source": "Cold Email",
+    "score": 94,
+    "status": "new"
+  },
+  {
+    "id": 41,
+    "name": "Scarlett Collins",
+    "company": "FinServe Group",
+    "email": "scarlett.collins@finserve.com",
+    "source": "LinkedIn",
+    "score": 65,
+    "status": "qualified"
+  },
+  {
+    "id": 42,
+    "name": "Owen Stewart",
+    "company": "NextGen Solutions",
+    "email": "owen.stewart@nextgen.com",
+    "source": "Referral",
+    "score": 91,
+    "status": "qualified"
+  },
+  {
+    "id": 43,
+    "name": "Aria Sanchez",
+    "company": "GreenEnergy Ltd",
+    "email": "aria.sanchez@greenenergy.com",
+    "source": "Website",
+    "score": 65,
+    "status": "unqualified"
+  },
+  {
+    "id": 44,
+    "name": "Gabriel Morris",
+    "company": "SynergySoft",
+    "email": "gabriel.morris@synergysoft.com",
+    "source": "LinkedIn",
+    "score": 92,
+    "status": "new"
+  },
+  {
+    "id": 45,
+    "name": "Layla Rogers",
+    "company": "SmartHome Systems",
+    "email": "layla.rogers@smarthome.com",
+    "source": "Referral",
+    "score": 84,
+    "status": "unqualified"
+  },
+  {
+    "id": 46,
+    "name": "Samuel Reed",
+    "company": "BrightPath",
+    "email": "samuel.reed@brightpath.com",
+    "source": "Referral",
+    "score": 88,
+    "status": "unqualified"
+  },
+  {
+    "id": 47,
+    "name": "Zoey Cook",
+    "company": "InnovateLab",
+    "email": "zoey.cook@innovatelab.com",
+    "source": "Referral",
+    "score": 65,
+    "status": "contacted"
+  },
+  {
+    "id": 48,
+    "name": "David Morgan",
+    "company": "FinServe Group",
+    "email": "david.morgan@finserve.com",
+    "source": "Referral",
+    "score": 99,
+    "status": "unqualified"
+  },
+  {
+    "id": 49,
+    "name": "Hannah Bell",
+    "company": "RetailHub",
+    "email": "hannah.bell@retailhub.com",
+    "source": "Trade Show",
+    "score": 75,
+    "status": "unqualified"
+  },
+  {
+    "id": 50,
+    "name": "Carter Murphy",
+    "company": "SmartHome Systems",
+    "email": "carter.murphy@smarthome.com",
+    "source": "Referral",
+    "score": 77,
+    "status": "unqualified"
+  },
+  {
+    "id": 51,
+    "name": "Natalie Bailey",
+    "company": "Enterprise Systems",
+    "email": "natalie.bailey@enterprise.com",
+    "source": "Website",
+    "score": 81,
+    "status": "contacted"
+  },
+  {
+    "id": 52,
+    "name": "Wyatt Rivera",
+    "company": "MediTech",
+    "email": "wyatt.rivera@meditech.com",
+    "source": "Cold Email",
+    "score": 94,
+    "status": "new"
+  },
+  {
+    "id": 53,
+    "name": "Addison Cooper",
+    "company": "NextGen Solutions",
+    "email": "addison.cooper@nextgen.com",
+    "source": "Referral",
+    "score": 84,
+    "status": "contacted"
+  },
+  {
+    "id": 54,
+    "name": "John Richardson",
+    "company": "DataFlow Inc",
+    "email": "john.richardson@dataflow.com",
+    "source": "LinkedIn",
+    "score": 87,
+    "status": "unqualified"
+  },
+  {
+    "id": 55,
+    "name": "Brooklyn Cox",
+    "company": "CoreDynamics",
+    "email": "brooklyn.cox@coredynamics.com",
+    "source": "Referral",
+    "score": 87,
+    "status": "new"
+  },
+  {
+    "id": 56,
+    "name": "Levi Howard",
+    "company": "StartupX",
+    "email": "levi.howard@startupx.com",
+    "source": "Trade Show",
+    "score": 68,
+    "status": "new"
+  },
+  {
+    "id": 57,
+    "name": "Savannah Ward",
+    "company": "AgroGrow",
+    "email": "savannah.ward@agrogrow.com",
+    "source": "Cold Email",
+    "score": 67,
+    "status": "qualified"
+  },
+  {
+    "id": 58,
+    "name": "Isaac Torres",
+    "company": "Enterprise Systems",
+    "email": "isaac.torres@enterprise.com",
+    "source": "Trade Show",
+    "score": 81,
+    "status": "contacted"
+  },
+  {
+    "id": 59,
+    "name": "Riley Peterson",
+    "company": "AlphaSolutions",
+    "email": "riley.peterson@alphasolutions.com",
+    "source": "Referral",
+    "score": 82,
+    "status": "qualified"
+  },
+  {
+    "id": 60,
+    "name": "Julian Gray",
+    "company": "OptimaHealth",
+    "email": "julian.gray@optimahealth.com",
+    "source": "Website",
+    "score": 75,
+    "status": "new"
+  },
+  {
+    "id": 61,
+    "name": "Nora Ramirez",
+    "company": "CyberDynamics",
+    "email": "nora.ramirez@cyberdynamics.com",
+    "source": "Referral",
+    "score": 66,
+    "status": "qualified"
+  },
+  {
+    "id": 62,
+    "name": "Aiden James",
+    "company": "SkyNetics",
+    "email": "aiden.james@skynetics.com",
+    "source": "LinkedIn",
+    "score": 60,
+    "status": "unqualified"
+  },
+  {
+    "id": 63,
+    "name": "Stella Watson",
+    "company": "CoreDynamics",
+    "email": "stella.watson@coredynamics.com",
+    "source": "Trade Show",
+    "score": 87,
+    "status": "unqualified"
+  },
+  {
+    "id": 64,
+    "name": "Joseph Brooks",
+    "company": "CyberDynamics",
+    "email": "joseph.brooks@cyberdynamics.com",
+    "source": "Cold Email",
+    "score": 73,
+    "status": "new"
+  },
+  {
+    "id": 65,
+    "name": "Paisley Kelly",
+    "company": "Visionary AI",
+    "email": "paisley.kelly@visionary.com",
+    "source": "Website",
+    "score": 92,
+    "status": "qualified"
+  },
+  {
+    "id": 66,
+    "name": "Mateo Sanders",
+    "company": "EduNext",
+    "email": "mateo.sanders@edunext.com",
+    "source": "Trade Show",
+    "score": 70,
+    "status": "qualified"
+  },
+  {
+    "id": 67,
+    "name": "Audrey Price",
+    "company": "InnovateLab",
+    "email": "audrey.price@innovatelab.com",
+    "source": "LinkedIn",
+    "score": 62,
+    "status": "qualified"
+  },
+  {
+    "id": 68,
+    "name": "Anthony Bennett",
+    "company": "SynergySoft",
+    "email": "anthony.bennett@synergysoft.com",
+    "source": "Referral",
+    "score": 98,
+    "status": "new"
+  },
+  {
+    "id": 69,
+    "name": "Skylar Wood",
+    "company": "BuildRight",
+    "email": "skylar.wood@buildright.com",
+    "source": "Cold Email",
+    "score": 69,
+    "status": "new"
+  },
+  {
+    "id": 70,
+    "name": "Dylan Barnes",
+    "company": "SkyNetics",
+    "email": "dylan.barnes@skynetics.com",
+    "source": "Trade Show",
+    "score": 73,
+    "status": "new"
+  },
+  {
+    "id": 71,
+    "name": "Lucy Ross",
+    "company": "StreamLine",
+    "email": "lucy.ross@streamline.com",
+    "source": "Trade Show",
+    "score": 66,
+    "status": "unqualified"
+  },
+  {
+    "id": 72,
+    "name": "Andrew Henderson",
+    "company": "SocialBuzz",
+    "email": "andrew.henderson@socialbuzz.com",
+    "source": "Cold Email",
+    "score": 91,
+    "status": "contacted"
+  },
+  {
+    "id": 73,
+    "name": "Eleanor Coleman",
+    "company": "AgroGrow",
+    "email": "eleanor.coleman@agrogrow.com",
+    "source": "Cold Email",
+    "score": 98,
+    "status": "new"
+  },
+  {
+    "id": 74,
+    "name": "Joshua Jenkins",
+    "company": "GreenEnergy Ltd",
+    "email": "joshua.jenkins@greenenergy.com",
+    "source": "LinkedIn",
+    "score": 71,
+    "status": "new"
+  },
+  {
+    "id": 75,
+    "name": "Hazel Perry",
+    "company": "GameSphere",
+    "email": "hazel.perry@gamesphere.com",
+    "source": "Trade Show",
+    "score": 60,
+    "status": "unqualified"
+  },
+  {
+    "id": 76,
+    "name": "Christopher Powell",
+    "company": "MetaWorks",
+    "email": "christopher.powell@metaworks.com",
+    "source": "Website",
+    "score": 97,
+    "status": "new"
+  },
+  {
+    "id": 77,
+    "name": "Ellie Long",
+    "company": "NextGen Solutions",
+    "email": "ellie.long@nextgen.com",
+    "source": "Referral",
+    "score": 77,
+    "status": "qualified"
+  },
+  {
+    "id": 78,
+    "name": "Nathan Patterson",
+    "company": "NextGen Solutions",
+    "email": "nathan.patterson@nextgen.com",
+    "source": "Website",
+    "score": 78,
+    "status": "contacted"
+  },
+  {
+    "id": 79,
+    "name": "Violet Hughes",
+    "company": "OptimaHealth",
+    "email": "violet.hughes@optimahealth.com",
+    "source": "LinkedIn",
+    "score": 73,
+    "status": "new"
+  },
+  {
+    "id": 80,
+    "name": "Grayson Flores",
+    "company": "CityNet",
+    "email": "grayson.flores@citynet.com",
+    "source": "Cold Email",
+    "score": 91,
+    "status": "contacted"
+  },
+  {
+    "id": 81,
+    "name": "Penelope Simmons",
+    "company": "BlueTech",
+    "email": "penelope.simmons@bluetech.com",
+    "source": "LinkedIn",
+    "score": 93,
+    "status": "qualified"
+  },
+  {
+    "id": 82,
+    "name": "Landon Foster",
+    "company": "GameSphere",
+    "email": "landon.foster@gamesphere.com",
+    "source": "LinkedIn",
+    "score": 92,
+    "status": "new"
+  },
+  {
+    "id": 83,
+    "name": "Lillian Bryant",
+    "company": "CloudVision",
+    "email": "lillian.bryant@cloudvision.com",
+    "source": "Cold Email",
+    "score": 61,
+    "status": "unqualified"
+  },
+  {
+    "id": 84,
+    "name": "Ryan Alexander",
+    "company": "RoboTech",
+    "email": "ryan.alexander@robotech.com",
+    "source": "Trade Show",
+    "score": 94,
+    "status": "qualified"
+  },
+  {
+    "id": 85,
+    "name": "Zoey Russell",
+    "company": "AeroSpace Global",
+    "email": "zoey.russell@aerospace.com",
+    "source": "Referral",
+    "score": 63,
+    "status": "qualified"
+  },
+  {
+    "id": 86,
+    "name": "Isaiah Griffin",
+    "company": "Oceanic Logistics",
+    "email": "isaiah.griffin@oceanic.com",
+    "source": "Referral",
+    "score": 98,
+    "status": "unqualified"
+  },
+  {
+    "id": 87,
+    "name": "Samantha Diaz",
+    "company": "CloudHub",
+    "email": "samantha.diaz@cloudhub.com",
+    "source": "Referral",
+    "score": 84,
+    "status": "contacted"
+  },
+  {
+    "id": 88,
+    "name": "Charles Hayes",
+    "company": "Oceanic Logistics",
+    "email": "charles.hayes@oceanic.com",
+    "source": "LinkedIn",
+    "score": 67,
+    "status": "qualified"
+  },
+  {
+    "id": 89,
+    "name": "Camila Myers",
+    "company": "NextWave",
+    "email": "camila.myers@nextwave.com",
+    "source": "LinkedIn",
+    "score": 99,
+    "status": "qualified"
+  },
+  {
+    "id": 90,
+    "name": "Hunter Ford",
+    "company": "AutoDrive",
+    "email": "hunter.ford@autodrive.com",
+    "source": "Cold Email",
+    "score": 62,
+    "status": "new"
+  },
+  {
+    "id": 91,
+    "name": "Aurora Hamilton",
+    "company": "TechCorp Solutions",
+    "email": "aurora.hamilton@techcorp.com",
+    "source": "Trade Show",
+    "score": 64,
+    "status": "new"
+  },
+  {
+    "id": 92,
+    "name": "Christian Graham",
+    "company": "Visionary AI",
+    "email": "christian.graham@visionary.com",
+    "source": "Cold Email",
+    "score": 81,
+    "status": "new"
+  },
+  {
+    "id": 93,
+    "name": "Madison Sullivan",
+    "company": "NextGen Solutions",
+    "email": "madison.sullivan@nextgen.com",
+    "source": "Cold Email",
+    "score": 93,
+    "status": "unqualified"
+  },
+  {
+    "id": 94,
+    "name": "Connor Wallace",
+    "company": "AlphaSolutions",
+    "email": "connor.wallace@alphasolutions.com",
+    "source": "Cold Email",
+    "score": 62,
+    "status": "unqualified"
+  },
+  {
+    "id": 95,
+    "name": "Evelyn West",
+    "company": "Matrix Corp",
+    "email": "evelyn.west@matrix.com",
+    "source": "Cold Email",
+    "score": 76,
+    "status": "unqualified"
+  },
+  {
+    "id": 96,
+    "name": "Dominic Woods",
+    "company": "BioGenix",
+    "email": "dominic.woods@biogenix.com",
+    "source": "LinkedIn",
+    "score": 71,
+    "status": "unqualified"
+  },
+  {
+    "id": 97,
+    "name": "Leah Stone",
+    "company": "SmartHome Systems",
+    "email": "leah.stone@smarthome.com",
+    "source": "Cold Email",
+    "score": 94,
+    "status": "unqualified"
+  },
+  {
+    "id": 98,
+    "name": "Nicholas Butler",
+    "company": "CoreDynamics",
+    "email": "nicholas.butler@coredynamics.com",
+    "source": "Referral",
+    "score": 99,
+    "status": "qualified"
+  },
+  {
+    "id": 99,
+    "name": "Avery Barnes",
+    "company": "FutureTech",
+    "email": "avery.barnes@futuretech.com",
+    "source": "Trade Show",
+    "score": 87,
+    "status": "unqualified"
+  },
+  {
+    "id": 100,
+    "name": "Eli Fisher",
+    "company": "VisionCare",
+    "email": "eli.fisher@visioncare.com",
+    "source": "Trade Show",
+    "score": 64,
+    "status": "contacted"
+  }
 ]

@@ -106,7 +106,7 @@ export function OpportunityDialog({
 							{`Convert ${lead?.name} from ${lead?.company} into a sales opportunity.`}
 						</DialogDescription>
 					</DialogHeader>
-					<div className='grid gap-4'>
+					<div className='grid gap-4 mt-8'>
 						<div className='grid gap-3'>
 							<Label htmlFor='name'>Opportunity Name</Label>
 							<div>

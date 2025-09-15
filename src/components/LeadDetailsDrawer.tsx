@@ -22,6 +22,7 @@ import {
 } from "./ui/select";
 import { Label } from "./ui/label";
 import { emailInputSchema, leadFormSchema } from "@/schemas/lead.schema";
+import { X, Edit2, User, LaptopMinimalCheck, TrendingUp } from "lucide-react";
 
 export default function LeadDetailsDrawer({
 	lead,
@@ -107,14 +108,19 @@ export default function LeadDetailsDrawer({
 			<DrawerContent className='right-0 top-0 h-full w-[400px] max-w-full border-l'>
 				<DrawerHeader className='relative'>
 					<DrawerTitle>Lead Details</DrawerTitle>
-					<DrawerClose className='absolute top-4 right-4' asChild>
-						<Button variant='outline'>Close</Button>
+					<DrawerClose
+						className='absolute top-4 right-4 hover:cursor-pointer'
+						asChild
+					>
+						<X size={22} />
 					</DrawerClose>
 				</DrawerHeader>
 
 				<form className='mt-4 px-4 flex flex-col gap-6' onSubmit={handleSave}>
 					<div>
-						<DrawerDescription>Contact information</DrawerDescription>
+						<DrawerDescription className='flex items-center gap-1'>
+							<User size={20} /> Contact information
+						</DrawerDescription>
 						<div className='mt-1'>
 							<div className='flex items-center h-8'>
 								<p className='font-medium'>Name: {`${lead?.name}`}</p>
@@ -148,7 +154,9 @@ export default function LeadDetailsDrawer({
 						</div>
 					</div>
 					<div>
-						<DrawerDescription>Lead metrics</DrawerDescription>
+						<DrawerDescription className='flex items-center gap-2'>
+							<TrendingUp size={20} /> Lead metrics
+						</DrawerDescription>
 						<div className='mt-1 '>
 							<div className='flex items-center h-8'>
 								<p className='font-medium'>Source: {`${lead?.source}`}</p>
@@ -159,10 +167,8 @@ export default function LeadDetailsDrawer({
 						</div>
 					</div>
 					<div>
-						<DrawerDescription className='pb-2'>
-							<Label id='statusSelect' className='font-normal'>
-								Status
-							</Label>
+						<DrawerDescription className='flex items-center gap-2 pb-2'>
+							<LaptopMinimalCheck size={20} /> Status
 						</DrawerDescription>
 						{isEditActive ? (
 							<div>
@@ -200,7 +206,9 @@ export default function LeadDetailsDrawer({
 						)}
 					</div>
 					<div>
-						<DrawerDescription>Edit information</DrawerDescription>
+						<DrawerDescription className='flex items-center gap-2'>
+							<Edit2 size={16} /> Edit information
+						</DrawerDescription>
 						<div className='mt-2 flex gap-4'>
 							{isEditActive ? (
 								<>

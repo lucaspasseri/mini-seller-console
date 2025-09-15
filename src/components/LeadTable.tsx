@@ -10,6 +10,7 @@ import {
 import { useState } from "react";
 import TableActions from "./TableActions";
 import { Button } from "./ui/button";
+import { LoaderCircle } from "lucide-react";
 
 const tableHeaders = ["Name", "Company", "Email", "Source", "Score", "Status"];
 
@@ -109,8 +110,10 @@ export default function LeadTable({
 				<TableBody>
 					{isLoading ? (
 						<TableRow>
-							<TableCell colSpan={tableHeaders.length} className='text-center'>
-								Loading...
+							<TableCell colSpan={tableHeaders.length} className='py-8'>
+								<div className='flex justify-center items-center'>
+									<LoaderCircle className='h-6 w-6 animate-spin text-gray-500' />
+								</div>
 							</TableCell>
 						</TableRow>
 					) : filteredLeads.length === 0 ? (

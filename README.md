@@ -1,69 +1,57 @@
-# React + TypeScript + Vite
+# Mini Seller Console - Challenge for a Frontend Developer position at CoverPin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Challenge
 
-Currently, two official plugins are available:
+### Mini Seller Console (React + Tailwind)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Goal: Build a lightweight console to triage Leads and convert them into Opportunities. You can use an AI co-pilot, we encourage dev’s to do so, but what we are assessing on is the structure and quality.
 
-## Expanding the ESLint configuration
+### Requirements (MVP)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+#### Leads List
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Load from a local JSON file.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Fields: id, name, company, email, source, score, status.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Features: search (name/company), filter (status), sort (score desc).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+#### Lead Detail Panel
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Click a row to open a slide-over panel.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Inline edit status and email (validate email format).
+
+Save/cancel actions with basic error handling.
+
+#### Convert to Opportunity
+
+Button: Convert Lead.
+
+Create an Opportunity with: id, name, stage, amount (optional), accountName.
+
+Show Opportunities in a simple table.
+
+#### UX/States
+
+Loading, empty, and simple error states.
+
+Handle ~100 leads smoothly.
+
+#### Nice-to-Haves (pick 1–2)
+
+Persist filter/sort in localStorage.
+
+Optimistic updates with a rollback on simulated failure.
+
+Responsive layout (desktop → mobile).
+
+#### Tech Constraints
+
+React (Vite or CRA) + Tailwind CSS.
+
+No backend required; use local JSON and setTimeout to simulate latency.
+
+##### duration
+
+72h

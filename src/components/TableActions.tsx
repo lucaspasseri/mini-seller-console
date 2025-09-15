@@ -38,7 +38,7 @@ export default function TableActions({
 					placeholder='Search by name or company...'
 					value={searchInput}
 					onChange={handleSearchInput}
-					className='pl-8'
+					className='pl-9'
 				/>
 				<Label htmlFor='searchInput' className='hover:cursor-pointer'>
 					<Search

@@ -48,13 +48,13 @@ export default function App() {
 		<div className='px-2 md:px-8 py-4'>
 			<Header />
 			<div className='flex flex-col gap-4'>
+				<OpportunityTable opportunities={opportunities} />
 				<LeadTable
 					leads={leads}
 					isLoading={loading}
 					hasError={error}
 					openDrawer={openDrawer}
 				/>
-				<OpportunityTable opportunities={opportunities} />
 			</div>
 			<LeadDetailsDrawer
 				lead={selectedLead}
