@@ -26,14 +26,16 @@ export default function LeadDetailsDrawer({
 	lead,
 	isOpen,
 	setIsOpen,
+	openDialog,
 }: {
 	lead: Lead | undefined;
 	isOpen: boolean;
 	setIsOpen: Dispatch<SetStateAction<boolean>>;
+	openDialog: Dispatch<SetStateAction<boolean>>;
 }) {
 	const [isEditActive, setIsEditActive] = useState<boolean>(false);
-	const [email, setEmail] = useState<string | undefined>(lead?.email);
-	const [status, setStatus] = useState<string | undefined>(lead?.status);
+	const [email, setEmail] = useState<string | undefined>("");
+	const [status, setStatus] = useState<string | undefined>("");
 
 	useEffect(() => {
 		setEmail(lead?.email);
@@ -70,7 +72,7 @@ export default function LeadDetailsDrawer({
 					<DrawerClose className='absolute top-4 right-4'>Close</DrawerClose>
 				</DrawerHeader>
 
-				<form className='px-4 flex flex-col gap-6' onSubmit={handleSave}>
+				<form className='mt-4 px-4 flex flex-col gap-6' onSubmit={handleSave}>
 					<div>
 						<DrawerDescription>Contact information</DrawerDescription>
 						<div className='mt-1'>
@@ -110,40 +112,43 @@ export default function LeadDetailsDrawer({
 							<div className='flex items-center h-8'>
 								<p className='font-medium'> Score: {`${lead?.score}`}</p>
 							</div>
-
-							{isEditActive ? (
-								<div className='flex items-center h-8'>
-									<Label id='statusSelect' className='text-[16px]'>
-										Status:
-									</Label>
-									<Select
-										name='statusSelect'
-										value={status ?? ""}
-										onValueChange={handleStatus}
-									>
-										<SelectTrigger
-											className='w-[200px]'
-											aria-labelledby='statusSelect'
-										>
-											<SelectValue placeholder='Select a Status' />
-										</SelectTrigger>
-										<SelectContent>
-											<SelectGroup>
-												<SelectLabel>Status</SelectLabel>
-												<SelectItem value='new'>New</SelectItem>
-												<SelectItem value='contacted'>Contacted</SelectItem>
-												<SelectItem value='qualified'>Qualified</SelectItem>
-												<SelectItem value='unqualified'>Unqualified</SelectItem>
-											</SelectGroup>
-										</SelectContent>
-									</Select>
-								</div>
-							) : (
-								<div className='flex items-center h-8'>
-									<p className='font-medium'>Status: {`${status ?? ""}`}</p>
-								</div>
-							)}
 						</div>
+					</div>
+					<div>
+						<DrawerDescription className='pb-2'>
+							<Label id='statusSelect' className='font-normal'>
+								Status
+							</Label>
+						</DrawerDescription>
+						{isEditActive ? (
+							<div className='flex items-center h-8'>
+								<Select
+									name='statusSelect'
+									value={status ?? ""}
+									onValueChange={handleStatus}
+								>
+									<SelectTrigger
+										className='w-[200px]'
+										aria-labelledby='statusSelect'
+									>
+										<SelectValue placeholder='Select a Status' />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectGroup>
+											<SelectLabel>Status</SelectLabel>
+											<SelectItem value='new'>New</SelectItem>
+											<SelectItem value='contacted'>Contacted</SelectItem>
+											<SelectItem value='qualified'>Qualified</SelectItem>
+											<SelectItem value='unqualified'>Unqualified</SelectItem>
+										</SelectGroup>
+									</SelectContent>
+								</Select>
+							</div>
+						) : (
+							<div className='flex items-center h-8'>
+								<p className='font-medium'> {`${status ?? ""}`}</p>
+							</div>
+						)}
 					</div>
 					<div>
 						<DrawerDescription>Edit information</DrawerDescription>
@@ -157,7 +162,7 @@ export default function LeadDetailsDrawer({
 									>
 										Cancel
 									</Button>
-									<Button type='submit'>Save</Button>
+									<Button type='submit'>Save Changes</Button>
 								</>
 							) : (
 								<Button type='button' onClick={handleOpenEdit}>
@@ -168,7 +173,10 @@ export default function LeadDetailsDrawer({
 					</div>
 				</form>
 				<DrawerFooter>
-					<Button type='submit'>Submit</Button>
+					<DrawerDescription>Opportunity</DrawerDescription>
+					<Button type='button' onClick={() => openDialog(true)}>
+						Convert to Opportunity
+					</Button>
 				</DrawerFooter>
 			</DrawerContent>
 		</Drawer>

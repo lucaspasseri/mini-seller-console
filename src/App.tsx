@@ -5,13 +5,15 @@ import { getLeads } from "./services/leads";
 import type { Lead } from "./types/lead";
 import LeadDetailsDrawer from "./components/LeadDetailsDrawer";
 import Header from "./components/Header";
+import { OpportunityDialog } from "./components/OpportunityDialog";
 
 export default function App() {
 	const [leads, setLeads] = useState<Lead[]>([]);
 	const [error, setError] = useState<string | null>(null);
 	const [loading, setLoading] = useState<boolean>(false);
-	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
 	const [selectedLeadId, setSelectedLeadId] = useState<string>("");
+	const [isOpenDialog, setIsOpenDialog] = useState<boolean>(false);
 
 	async function loadLeads() {
 		try {
@@ -33,7 +35,7 @@ export default function App() {
 
 	function openDrawer(leadId: string) {
 		setSelectedLeadId(leadId);
-		setIsOpen(true);
+		setIsOpenDrawer(true);
 	}
 	const selectedLead: Lead | undefined = leads.find(
 		lead => `${lead.id}` === selectedLeadId
@@ -50,8 +52,14 @@ export default function App() {
 			/>
 			<LeadDetailsDrawer
 				lead={selectedLead}
-				isOpen={isOpen}
-				setIsOpen={setIsOpen}
+				isOpen={isOpenDrawer}
+				setIsOpen={setIsOpenDrawer}
+				openDialog={setIsOpenDialog}
+			/>
+			<OpportunityDialog
+				isOpen={isOpenDialog}
+				setIsOpen={setIsOpenDialog}
+				lead={selectedLead}
 			/>
 		</div>
 	);
