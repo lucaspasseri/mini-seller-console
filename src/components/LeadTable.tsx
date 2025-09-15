@@ -131,7 +131,11 @@ export default function LeadTable({
 						</TableRow>
 					) : (
 						filteredLeads.map(lead => (
-							<TableRow key={lead.id} onClick={() => openDrawer(`${lead.id}`)}>
+							<TableRow
+								key={lead.id}
+								className='hover:cursor-pointer'
+								onClick={() => openDrawer(`${lead.id}`)}
+							>
 								<TableCell>{lead.name}</TableCell>
 								<TableCell>{lead.company}</TableCell>
 								<TableCell>{lead.email}</TableCell>

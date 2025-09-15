@@ -21,6 +21,7 @@ import {
 	SelectValue,
 } from "./ui/select";
 import { Label } from "./ui/label";
+import { emailInputSchema, leadFormSchema } from "@/schemas/lead.schema";
 
 export default function LeadDetailsDrawer({
 	lead,
@@ -36,6 +37,9 @@ export default function LeadDetailsDrawer({
 	const [isEditActive, setIsEditActive] = useState<boolean>(false);
 	const [email, setEmail] = useState<string | undefined>("");
 	const [status, setStatus] = useState<string | undefined>("");
+	const [formError, setFormError] = useState<Record<string, string> | null>(
+		null
+	);
 
 	useEffect(() => {
 		setEmail(lead?.email);
@@ -54,14 +58,48 @@ export default function LeadDetailsDrawer({
 	function handleOpenEdit() {
 		setIsEditActive(true);
 	}
-	function handleSave(e: any) {
+	function handleSave(e: React.FormEvent) {
 		e.preventDefault();
-		setIsEditActive(false);
+
+		const entry = {
+			email,
+			status,
+		};
+
+		const result = leadFormSchema.safeParse(entry);
+		const errorObj: Record<string, string> = {};
+		if (!result.success) {
+			result.error.issues.forEach(issue => {
+				const key = issue.path[0] as string;
+				const message = issue.message;
+				errorObj[key] = message;
+			});
+
+			setFormError(errorObj);
+		} else {
+			setFormError(null);
+			setIsEditActive(false);
+		}
 	}
 
 	function handleOnOpenChange() {
 		setIsOpen(false);
 		setIsEditActive(false);
+	}
+
+	function handleEmailInput(e: any) {
+		const currValue = e.currentTarget.value;
+		setEmail(currValue);
+		const result = emailInputSchema.safeParse({ email: currValue });
+		const errorObj: Record<string, string> = {};
+		if (!result.success) {
+			const key = result.error.issues[0].path[0] as string;
+			const message = result.error.issues[0].message;
+			errorObj[key] = message;
+			setFormError(errorObj);
+		} else {
+			setFormError(null);
+		}
 	}
 
 	return (
@@ -84,17 +122,21 @@ export default function LeadDetailsDrawer({
 							</div>
 
 							{isEditActive ? (
-								<div className='flex items-center h-8'>
-									<Label htmlFor='emailInput' className='text-[16px]'>
-										Email:
-									</Label>
-									<Input
-										id='emailInput'
-										name='emailInput'
-										type='email'
-										value={email}
-										onChange={e => setEmail(e.currentTarget.value)}
-									/>
+								<div>
+									<div className='flex items-center h-8'>
+										<Label htmlFor='emailInput' className='text-[16px]'>
+											Email:
+										</Label>
+										<Input
+											id='emailInput'
+											name='emailInput'
+											value={email}
+											onChange={handleEmailInput}
+										/>
+									</div>
+									{formError?.email ? (
+										<p className='text-red-400'> {formError.email}</p>
+									) : null}
 								</div>
 							) : (
 								<div className='flex items-center h-8'>
@@ -121,28 +163,33 @@ export default function LeadDetailsDrawer({
 							</Label>
 						</DrawerDescription>
 						{isEditActive ? (
-							<div className='flex items-center h-8'>
-								<Select
-									name='statusSelect'
-									value={status ?? ""}
-									onValueChange={handleStatus}
-								>
-									<SelectTrigger
-										className='w-[200px]'
-										aria-labelledby='statusSelect'
+							<div>
+								<div className='flex items-center h-8'>
+									<Select
+										name='statusSelect'
+										value={status ?? ""}
+										onValueChange={handleStatus}
 									>
-										<SelectValue placeholder='Select a Status' />
-									</SelectTrigger>
-									<SelectContent>
-										<SelectGroup>
-											<SelectLabel>Status</SelectLabel>
-											<SelectItem value='new'>New</SelectItem>
-											<SelectItem value='contacted'>Contacted</SelectItem>
-											<SelectItem value='qualified'>Qualified</SelectItem>
-											<SelectItem value='unqualified'>Unqualified</SelectItem>
-										</SelectGroup>
-									</SelectContent>
-								</Select>
+										<SelectTrigger
+											className='w-[200px]'
+											aria-labelledby='statusSelect'
+										>
+											<SelectValue placeholder='Select a Status' />
+										</SelectTrigger>
+										<SelectContent>
+											<SelectGroup>
+												<SelectLabel>Status</SelectLabel>
+												<SelectItem value='new'>New</SelectItem>
+												<SelectItem value='contacted'>Contacted</SelectItem>
+												<SelectItem value='qualified'>Qualified</SelectItem>
+												<SelectItem value='unqualified'>Unqualified</SelectItem>
+											</SelectGroup>
+										</SelectContent>
+									</Select>
+								</div>
+								{formError?.status ? (
+									<p className='text-red-400'>{formError.status}</p>
+								) : null}
 							</div>
 						) : (
 							<div className='flex items-center h-8'>
