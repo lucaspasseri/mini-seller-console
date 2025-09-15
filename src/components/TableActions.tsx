@@ -52,7 +52,7 @@ export default function TableActions({
 					</SelectGroup>
 				</SelectContent>
 			</Select>
-			<Button variant='outline' onClick={handleSortOrder}>
+			<Button type='button' variant='outline' onClick={handleSortOrder}>
 				Sort Leads
 			</Button>
 		</form>

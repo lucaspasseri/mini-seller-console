@@ -83,6 +83,7 @@ export default function LeadTable({
 
 	return (
 		<div className='border border-[#fdfdfd]rounded p-2'>
+			<h3 className='mx-2 mb-4'>Leads({`${filteredLeads.length})`}</h3>
 			<TableActions
 				searchInput={searchInput}
 				handleSearchInput={handleSearchInput}
@@ -90,7 +91,6 @@ export default function LeadTable({
 				handleSelectedStatus={handleSelectedStatus}
 				handleSortOrder={handleSortOrder}
 			/>
-			<h4 className='mx-2 mb-2'>Leads: {`${filteredLeads.length}`}</h4>
 			<Table>
 				<TableHeader>
 					<TableRow>

@@ -5,3 +5,11 @@ export type OpportunityStage =
 	| "negotiation"
 	| "closedWon"
 	| "closedLost";
+
+export interface Opportunity {
+	id: number;
+	name: string;
+	accountName: string;
+	stage: OpportunityStage;
+	amount?: number;
+}
